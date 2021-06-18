@@ -1,6 +1,11 @@
 *{
     width: 100%;
 }
+#diseño{
+    background-color: #B3E283;
+    border-radius: 2px;
+    border:3px forestgreen solid;
+}
 .main-row{
     text-align: center;
     display: inline-flex;
@@ -9,7 +14,7 @@
 .main-row form{
     margin-left: 10px;
     margin-right: 10px;
-    border: 2px black solid;
+    border: 2px #5F939A dashed;
     height: 200px;
     border-radius: 10px;
 }
