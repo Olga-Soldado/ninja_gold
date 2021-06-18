@@ -20,7 +20,7 @@ def process_money(request):
         if score > 0:
             request.session['box'].insert(0,{'class': 'green', 'log': f"Haz ganado {score} puntos!. De  {request.POST['building']} {strftime('%Y/%m/%d %I:%M:%S %p')}"})
         else:
-            request.session['box'].insert(0,{'class': 'red', 'log': f"Haz perdido {-1*score} puntos !. De {request.POST['building']}{strftime('%Y/%m/%d %I:%M:%S %p')}"})
+            request.session['box'].insert(0,{'class': 'red', 'log': f"Haz perdido {score} puntos !. De {request.POST['building']}{strftime('%Y/%m/%d %I:%M:%S %p')}"})
     else:
         request.session['count'] = 0
         request.session['box'] = []
