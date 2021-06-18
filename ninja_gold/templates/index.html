@@ -12,52 +12,57 @@
 <body>
     <div class="container -sm" id="diseño">
         <div class="row">
-            <div class="col -8"><h1 class="text-center bg-secondary bg-gradient">Ninja Gold</h1> </div>
+            <div class="col -8">
+                <h1 class="text-center "> Ninja Gold </h1> 
+            </div>
         </div>
-        <div class="gold-total">
-            <table><td><h2>You gold:</h2></td><td class="border border-dark"><h2>{{ request.session.count }}</h2></td></table>
+        <div class="row">
+            <div class="col-4">
+                <h2 class="bg-info text-center ">You gold:{{ request.session.count }}</h2>
+            </div>
+            <div class=col-4>
+                <form action="/reiniciar" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-success text-center " value="New start/reset ">
+                </form>
+            </div>
         </div>
-        <div>
-        <form action="/reset" method="POST">
-            {% csrf_token %}
-            <input type="submit" class="btn-2" value="Nueva Partida ">
-        </form>
-    </div>
+        
         <div class="main-row">
             <form action="/process_money" method="POST">
                 {% csrf_token %}
                 <div class="well">
-                    <h4 class="top">Granja</h4>
-                    <h4>10 - 20 ORO</h4>
+                    <h4 class="top">Farm</h4>
+                    <h6>(earns 10-20 golds.)</h6>
                     <input type="hidden" name="building" value="Granja" />
-                    <input type="submit" class="btn" value="oro!">
+                    <input type="submit" class="btn" value="find gold!.">
                 </div>
             </form>
             <form action="/process_money" method="POST">
                 {% csrf_token %}
                 <div class="well">
-                    <h4 class="top">Cueva</h4>
-                    <h4>5 - 10 oro</h4>
+                    <h4 class="top">Cave</h4>
+                    <h6>(earns 5-10 golds.)</h6>
                     <input type="hidden" name="building" value="Cueva" />
-                    <input type="submit" class="btn" value="oro!"> 
+                    <input type="submit" class="btn" value="Find gold!"> 
                 </div>
             </form>
             <form action="/process_money" method="POST">
                 {% csrf_token %}
                 <div class="well">
-                    <h4 class="top">Casa</h4>
-                    <h4>2 - 5 oro</h4>
+                    <h4 class="top">House</h4>
+                    <h6>(earns 2- 5 golds.)</h6>
                     <input type="hidden" name="building" value="Casa" />
-                    <input type="submit" class="btn" value="oro!">
+                    <input type="submit" class="btn" value="find gold!">
                 </div>
             </form>
             <form action="/process_money" method="POST">
                 {% csrf_token %}
                 <div class="well">
                     <h4 class="top">Casino </h4>
-                    <h4>0 - 50 Oro</h4>
+                    <h6>(earns/taken 0-50 golds.)</h6>
                     <input type="hidden" name="building" value="Casino" />
-                    <input type="submit" class="btn" value="oro!">
+                    <input type="submit" class="btn" value="Find gold!">
                 </div>
             </form>
         </div>
@@ -72,9 +77,5 @@
         </div>    
 
     </div>
-
-
-    
-    
 </body>
 </html>

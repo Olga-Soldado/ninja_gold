@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render,redirect
 # Create your views here.
 from time import strftime
 import random
@@ -18,15 +18,15 @@ def process_money(request):
             score = random.randint(-50,50)
         request.session['count'] += score
         if score > 0:
-            request.session['box'].insert(0,{'class': 'green', 'log': f"Haz ganado  {score} puntos XD {request.POST['building']}! {strftime('%Y/%m/%d %I:%M:%S %p')}"})
+            request.session['box'].insert(0,{'class': 'green', 'log': f"Haz ganado {score} puntos!. De  {request.POST['building']} {strftime('%Y/%m/%d %I:%M:%S %p')}"})
         else:
-            request.session['box'].insert(0,{'class': 'red', 'log': f"Haz perdido {-1*score} puntos{request.POST['building']}... Ouch!!! =({strftime('%Y/%m/%d %I:%M:%S %p')}"})
+            request.session['box'].insert(0,{'class': 'red', 'log': f"Haz perdido {-1*score} puntos !. De {request.POST['building']}{strftime('%Y/%m/%d %I:%M:%S %p')}"})
     else:
         request.session['count'] = 0
         request.session['box'] = []
     return redirect('/')
 
-def reset(request):
+def reiniciar(request):
     request.session['count'] = 0
     request.session['box'] = []
     return redirect('/')
