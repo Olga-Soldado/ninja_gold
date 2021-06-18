@@ -2,7 +2,6 @@
     width: 100%;
 }
 #diseño{
-    background-color: #B3E283;
     border-radius: 2px;
     border:3px forestgreen solid;
 }
@@ -22,7 +21,7 @@
     width: 120px;
     height: 40px;
     border-radius: 5px;
-    background-color: rebeccapurple;
+    background-color: purple;
     color: white;
 }
 .top{
